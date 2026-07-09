@@ -1,4 +1,4 @@
 # EmploymentInformationSystem
-team-lead : Sampath
-co-lead : Gireesh
+team-lead : Sampath,
+co-lead : Gireesh,
 member : sai
