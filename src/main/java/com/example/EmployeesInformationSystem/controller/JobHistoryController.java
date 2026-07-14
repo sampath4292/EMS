@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.EmployeesInformationSystem.dto.JobHistoryRequestDTO;
 import com.example.EmployeesInformationSystem.entity.JobHistory;
 import com.example.EmployeesInformationSystem.services.implementation.JobHistoryServiceImp;
 import com.example.EmployeesInformationSystem.services.*;
@@ -28,9 +29,8 @@ public class JobHistoryController {
         return service.EmployeeJobHistory(id);
     }
     @PostMapping
-    public void addHistory(@RequestBody JobHistory jobHistory) {
-
-        service.SaveEmpHistory(jobHistory);
+    public void addHistory(@RequestBody JobHistoryRequestDTO request) {
+        service.SaveEmpHistory(request);
     }
     
     

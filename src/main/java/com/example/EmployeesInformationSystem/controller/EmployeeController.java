@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.EmployeesInformationSystem.dto.SalaryUpdateRequestDTO;
 import com.example.EmployeesInformationSystem.entity.Employee;
 import com.example.EmployeesInformationSystem.services.EmployeeService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,8 +37,8 @@ public class EmployeeController {
         return service.EmployeewithName(name);
     }
     @GetMapping("/salary")
-    public List<Employee> getEmpBySalary(@RequestParam Integer a,@RequestParam Integer b) {
-        return service.EmployeebySalary(a, b);
+    public List<Employee> getEmpBySalary(@RequestParam Integer a,@RequestParam SalaryUpdateRequestDTO req) {
+        return service.EmployeebySalary(a, req.getSalary());
     }
     @PutMapping("/{id}/salary")
     public  int editSalary(@PathVariable Integer id, @RequestBody Integer salary) {

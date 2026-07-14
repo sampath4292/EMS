@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.EmployeesInformationSystem.entity.JobHistory;
+import com.example.EmployeesInformationSystem.entity.JobHistoryId;
 import com.example.EmployeesInformationSystem.repository.JobHistoryRepo;
+import com.example.EmployeesInformationSystem.dto.JobHistoryRequestDTO;
 import com.example.EmployeesInformationSystem.services.JobHistorySevice;
 
 
@@ -22,8 +24,26 @@ public class JobHistoryServiceImp  implements JobHistorySevice{
         return repo.findByEmployeeEmployeeId(a);
     }
     @Override
-    public void SaveEmpHistory(JobHistory j){
-        repo.save(j);
+    public void SaveEmpHistory(JobHistoryRequestDTO request) {
+        
+
+    JobHistory jobHistory = new JobHistory();
+
+    JobHistoryId id = new JobHistoryId();
+
+    id.setEmployeeId(request.getEmployeeId());
+    id.setJobId(request.getJobId());
+
+    jobHistory.setId(id);
+
+    jobHistory.setEmployee(employeeId);
+    jobHistory.setJob(jobId);
+
+    jobHistory.setStartDate(request.getStartDate());
+    jobHistory.setEndDate(request.getEndDate());
+
+    repo.save(jobHistory);
+        
     }
     
 }
