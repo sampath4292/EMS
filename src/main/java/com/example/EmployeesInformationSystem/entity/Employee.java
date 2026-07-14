@@ -2,6 +2,9 @@ package com.example.EmployeesInformationSystem.entity;
 
 import java.sql.Date;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -36,6 +39,7 @@ public class Employee {
     private Date DOJ;
 
     @OneToMany(mappedBy = "employee")
+    @JsonIgnore
     private List<JobHistory> jobHistories;
 
 

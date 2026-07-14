@@ -2,6 +2,8 @@ package com.example.EmployeesInformationSystem.entity;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -18,6 +20,7 @@ public class Job {
     private String JobTitle;
 
     @OneToMany(mappedBy = "job")
+    @JsonIgnore
     private List<Employee>employees;
 
     public Job(Integer JobId, String JobTitle) {
